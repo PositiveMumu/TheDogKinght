@@ -17,7 +17,9 @@ public class MouseManager : MonoBehaviour
     public Texture2D Point, Doorway, Attack, Target, Arrow;
     
     public static MouseManager Instance;
-    public event Action<Vector3> OnMouseClick;
+    public event Action<Vector3> OnGroundClick;
+
+    public event Action<GameObject> OnAttackClick; 
     
     private RaycastHit hitInfo;
 
@@ -50,6 +52,9 @@ public class MouseManager : MonoBehaviour
                 case "Ground":
                     Cursor.SetCursor(Target,new Vector2(16,16),CursorMode.Auto);
                     break;
+                case "Enemy":
+                    Cursor.SetCursor(Attack,new Vector2(16,16),CursorMode.Auto);
+                    break;
             }
         }
     }
@@ -60,7 +65,11 @@ public class MouseManager : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.CompareTag("Ground"))
             {
-                OnMouseClick?.Invoke(hitInfo.point);
+                OnGroundClick?.Invoke(hitInfo.point);
+            }
+            if (hitInfo.collider.gameObject.CompareTag("Enemy"))
+            {
+                OnAttackClick?.Invoke(hitInfo.collider.gameObject);
             }
         }
     }
