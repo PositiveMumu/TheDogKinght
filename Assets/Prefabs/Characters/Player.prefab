@@ -410,9 +410,10 @@ GameObject:
   - component: {fileID: 8354140760274868181}
   - component: {fileID: 507779713653228530}
   - component: {fileID: 507779713653228529}
+  - component: {fileID: 123852603}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,7 +467,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 80
   avoidancePriority: 50
-  m_AngularSpeed: 800
+  m_AngularSpeed: 3000
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
@@ -487,6 +488,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877dc92afbb184dd0beb55a1507d4b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &123852603
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8354140760267482139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!1 &8354140760267482141
 GameObject:
   m_ObjectHideFlags: 0

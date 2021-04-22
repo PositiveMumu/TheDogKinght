@@ -55,15 +55,15 @@ public class PlayController : MonoBehaviour
     private IEnumerator AttackToTarget()
     {
         agent.isStopped = false;
-
-        transform.LookAt(AttackTarget.transform);
+        
         //攻击距离固定，后期可以修改
-        while (Vector3.Distance(transform.position, AttackTarget.transform.position)>1)
+        while (Vector3.Distance(transform.position, AttackTarget.transform.position)>1.5f)
         {
             agent.destination = AttackTarget.transform.position;
             yield return null;
         }
-
+        
+        transform.LookAt(AttackTarget.transform);
         agent.isStopped = true;
 
         if (lastTimeAttack <= 0)
