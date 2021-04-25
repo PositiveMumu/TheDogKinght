@@ -11,27 +11,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseManager : MonoBehaviour
+public class MouseManager : MonoSingleton<MouseManager>
 {
 
     public Texture2D Point, Doorway, Attack, Target, Arrow;
     
-    public static MouseManager Instance;
     public event Action<Vector3> OnGroundClick;
 
     public event Action<GameObject> OnAttackClick; 
     
     private RaycastHit hitInfo;
-
-    public void Awake()
-    {
-        if ( Instance!= null)
-        {
-            Destroy(gameObject);
-        }
-
-        Instance = this;
-    }
 
     // Update is called once per frame
     void Update()

@@ -11,20 +11,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class PlayController : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Animator ani;
+    private CharacterStats characterStats;
 
     private GameObject AttackTarget;
     private float lastTimeAttack;
+
+    private bool isDead;
 
     // Start is called before the first frame update
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         ani = GetComponent<Animator>();
+        characterStats = GetComponent<CharacterStats>();
     }
 
     private void Start()
@@ -33,9 +38,22 @@ public class PlayController : MonoBehaviour
         MouseManager.Instance.OnAttackClick += EventAttack;
     }
 
+    void Update()
+    {
+        isDead = characterStats.CurrentHealth <= 0;
+        
+        if(isDead)
+            GameManager.Instance.Notify();
+        SetPlayerMoveAnimation();
+
+        lastTimeAttack -= Time.deltaTime;
+        
+    }
+    
     public void MoveToTarget(Vector3 target)
     {
-        if(ani.GetCurrentAnimatorClipInfo(0)[0].clip.name=="Attack01")
+        if(ani.GetCurrentAnimatorClipInfo(0)[0].clip.name=="Attack01"||
+           ani.GetCurrentAnimatorClipInfo(0)[0].clip.name=="Attack02")
             ani.SetTrigger("StopAttack");
 
         StopAllCoroutines();
@@ -48,6 +66,7 @@ public class PlayController : MonoBehaviour
         if (target != null)
         {
             AttackTarget = target;
+            characterStats.isCritical = Random.value < characterStats.attackData.criticalChance;
             StartCoroutine(AttackToTarget());
         }
     }
@@ -56,8 +75,7 @@ public class PlayController : MonoBehaviour
     {
         agent.isStopped = false;
         
-        //攻击距离固定，后期可以修改
-        while (Vector3.Distance(transform.position, AttackTarget.transform.position)>1.5f)
+        while (Vector3.Distance(transform.position, AttackTarget.transform.position)>characterStats.attackData.attackRange)
         {
             agent.destination = AttackTarget.transform.position;
             yield return null;
@@ -68,8 +86,9 @@ public class PlayController : MonoBehaviour
 
         if (lastTimeAttack <= 0)
         {
+            ani.SetBool("Critical", characterStats.isCritical);
             ani.SetTrigger("Attack");
-            lastTimeAttack = 0.5f;
+            lastTimeAttack = characterStats.attackData.coolDown;
         }
 
     }
@@ -77,15 +96,15 @@ public class PlayController : MonoBehaviour
     private void SetPlayerMoveAnimation()
     {
         ani.SetFloat("Speed",agent.velocity.sqrMagnitude);
+        ani.SetBool("Death",isDead);
     }
     
 
-    // Update is called once per frame
-    void Update()
+    //Animation Event
+    void Hit()
     {
-        SetPlayerMoveAnimation();
-
-        lastTimeAttack -= Time.deltaTime;
+        var targetStats = AttackTarget.GetComponent<CharacterStats>();
         
+        characterStats.TakeDamage(targetStats);
     }
 }
