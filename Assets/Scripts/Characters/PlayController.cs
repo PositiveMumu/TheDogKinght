@@ -52,6 +52,7 @@ public class PlayController : MonoBehaviour
     
     public void MoveToTarget(Vector3 target)
     {
+        if(isDead) return;
         if(ani.GetCurrentAnimatorClipInfo(0)[0].clip.name=="Attack01"||
            ani.GetCurrentAnimatorClipInfo(0)[0].clip.name=="Attack02")
             ani.SetTrigger("StopAttack");
@@ -63,6 +64,7 @@ public class PlayController : MonoBehaviour
 
     private void EventAttack(GameObject target)
     {
+        if(isDead) return;
         if (target != null)
         {
             AttackTarget = target;

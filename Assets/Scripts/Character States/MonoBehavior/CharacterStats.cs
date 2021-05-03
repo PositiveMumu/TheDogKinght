@@ -6,18 +6,29 @@
 //     功能：角色数据处理类
 // *****************************************************
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CharacterStats : MonoBehaviour
 {
-    public CharacterData_SO characterData;
+    
 
+    public CharacterData_SO templateData;
+    public CharacterData_SO characterData;
     public AttackData_SO attackData;
 
     [HideInInspector]
     public bool isCritical;
+    
+    public void Awake()
+    {
+        if(templateData!=null)
+            characterData = Instantiate(templateData);
+    }
+
     #region Read from CharacterData_SO
 
     public int MaxHealth

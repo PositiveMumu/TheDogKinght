@@ -12,11 +12,13 @@ using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(CharacterStats))]
+
 public class EnemyController : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Animator ani;
-    private CharacterStats characterStats;
+    protected CharacterStats characterStats;
     private EnemyStates enemyState;
     
 
@@ -40,7 +42,7 @@ public class EnemyController : MonoBehaviour
     
     private float runSpeed;
     
-    private GameObject attackTarget;
+    protected GameObject attackTarget;
     
 
     [Header("Patrol State")] 
@@ -92,15 +94,18 @@ public class EnemyController : MonoBehaviour
             lastAttackTime -= Time.deltaTime;
         }
         
-    }
-
-    private void OnEnable()
-    {
+        //todo 添加场景切换后修改
         GameManager.Instance.RegisterGameEndEvent(IEndGameMethod);
     }
 
+    // private void OnEnable()
+    // {
+    //     GameManager.Instance.RegisterGameEndEvent(IEndGameMethod);
+    // }
+
     private void OnDisable()
     {
+        if(!GameManager.IsInitialized) return;
         GameManager.Instance.RemoveGameEndEvent(IEndGameMethod);
     }
 
@@ -206,9 +211,8 @@ public class EnemyController : MonoBehaviour
 
                 break;
             case EnemyStates.DEAD:
-                agent.enabled = false;
+                agent.radius = 0;
                 GetComponent<Collider>().enabled = false;
-
                 Destroy(gameObject, 2f);
                 break;
         }
@@ -263,7 +267,14 @@ public class EnemyController : MonoBehaviour
     private void Attack()
     {
         transform.LookAt(attackTarget.transform);
-        ani.SetTrigger("Attack");
+        if(TargetInSkillRange())
+        {
+            ani.SetTrigger("Skill");
+        }
+        else if (TargetInAttackRange())
+        {
+            ani.SetTrigger("Attack");
+        }
     }
     
 
@@ -277,7 +288,7 @@ public class EnemyController : MonoBehaviour
     //Animation Event
     private void Hit()
     {
-        if (attackTarget != null)
+        if (attackTarget != null && transform.IsFacingTarget(attackTarget.transform))
         {
             var targetStats = attackTarget.GetComponent<CharacterStats>();
         

@@ -53,14 +53,18 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Characters\EnemyController.cs" />
+     <Compile Include="Assets\Scripts\Tools\MonoSingleton.cs" />
      <Compile Include="Assets\Scripts\Characters\PlayController.cs" />
      <Compile Include="Assets\Scripts\Character States\ScriptableObject\CharacterData_SO.cs" />
      <Compile Include="Assets\Scripts\Combat\AttackData_SO.cs" />
      <Compile Include="Assets\Scripts\Manager\MouseManager.cs" />
      <Compile Include="Assets\Scripts\Characters\EnemyStates.cs" />
-     <Compile Include="Assets\Scripts\Character States\MonoBehavior\CharacterStats.cs" />
-     <Compile Include="Assets\Scripts\MonoSingleton.cs" />
      <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Character States\MonoBehavior\CharacterStats.cs" />
+     <Compile Include="Assets\Scripts\Characters\Enemy\GruntController.cs" />
+     <Compile Include="Assets\Scripts\Animatior Behavior\StopAgent.cs" />
+     <Compile Include="Assets\Scripts\Tools\ExtensionMethod.cs" />
+     <Compile Include="Assets\Scripts\Characters\Enemy\GolemController.cs" />
      <None Include="Assets\Assets Packs\BOXOPHOBIC\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
