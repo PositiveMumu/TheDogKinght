@@ -13,10 +13,12 @@ using UnityEngine.AI;
 
 public class GolemController : EnemyController
 {
-    [Header("Skill")] 
-    
+    [Header("Skill")]
     public float kickForce = 25;
 
+    public GameObject rockPre;
+    public Transform handPos;
+    
     public void Kickoff()
     {
         if (attackTarget != null && transform.IsFacingTarget(attackTarget.transform))
@@ -32,6 +34,20 @@ public class GolemController : EnemyController
             targetStats.GetComponent<Animator>().SetTrigger("Dizzy");
 
             characterStats.TakeDamage(targetStats);
+        }
+    }
+
+    public void ThrowRock()
+    {
+        var rock = Instantiate(rockPre, handPos.position, Quaternion.identity);
+
+        if (attackTarget != null)
+        {
+            rock.GetComponent<Rock>().target = attackTarget;
+        }
+        else
+        {
+            rock.GetComponent<Rock>().target=FindObjectOfType<PlayController>().gameObject;
         }
     }
 }

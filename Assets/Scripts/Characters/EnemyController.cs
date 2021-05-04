@@ -16,6 +16,8 @@ using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour
 {
+    
+    
     private NavMeshAgent agent;
     private Animator ani;
     protected CharacterStats characterStats;
@@ -267,13 +269,14 @@ public class EnemyController : MonoBehaviour
     private void Attack()
     {
         transform.LookAt(attackTarget.transform);
-        if(TargetInSkillRange())
-        {
-            ani.SetTrigger("Skill");
-        }
-        else if (TargetInAttackRange())
+        
+        if (TargetInAttackRange())
         {
             ani.SetTrigger("Attack");
+        }
+        else if(TargetInSkillRange())
+        {
+            ani.SetTrigger("Skill");
         }
     }
     

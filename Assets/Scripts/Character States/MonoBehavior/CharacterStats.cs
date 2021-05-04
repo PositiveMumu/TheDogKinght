@@ -14,8 +14,6 @@ using Random = UnityEngine.Random;
 
 public class CharacterStats : MonoBehaviour
 {
-    
-
     public CharacterData_SO templateData;
     public CharacterData_SO characterData;
     public AttackData_SO attackData;
@@ -23,6 +21,7 @@ public class CharacterStats : MonoBehaviour
     [HideInInspector]
     public bool isCritical;
     
+    public Action<int, int> UpdateHealthBarOnAttack;
     public void Awake()
     {
         if(templateData!=null)
@@ -104,10 +103,20 @@ public class CharacterStats : MonoBehaviour
         {
             denfencer.GetComponent<Animator>().SetTrigger("Hit");
         }
+
+        if (denfencer.CurrentHealth <= 0)
+            characterData.UpdateExp(denfencer.characterData.killPoint);
+        denfencer.UpdateHealthBarOnAttack?.Invoke(denfencer.CurrentHealth,denfencer.MaxHealth);
         
-        //TODO Update UI
-        //TODO Update Experience
-        
+    }
+
+    public void TakeDamage(int damage)
+    {
+        int temp = Mathf.Max(damage - CurrentDefence, 0);
+        CurrentHealth = Mathf.Max(CurrentHealth - temp, 0);
+        UpdateHealthBarOnAttack?.Invoke(CurrentHealth,MaxHealth);
+        // if(denfencer.CurrentHealth<=0)
+        //     characterData.UpdateExp(denfencer.characterData.killPoint);
     }
 
     private int CurrentDamage()

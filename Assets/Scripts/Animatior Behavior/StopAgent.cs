@@ -21,6 +21,7 @@ public class StopAgent : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.GetComponent<NavMeshAgent>().isStopped = false;
+        animator.GetComponent<NavMeshAgent>().destination = animator.transform.position;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

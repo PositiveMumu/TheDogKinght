@@ -24,12 +24,16 @@ public class PlayController : MonoBehaviour
 
     private bool isDead;
 
+    private float stopDistance;
+
     // Start is called before the first frame update
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         ani = GetComponent<Animator>();
         characterStats = GetComponent<CharacterStats>();
+
+        stopDistance = agent.stoppingDistance;
     }
 
     private void Start()
@@ -59,6 +63,7 @@ public class PlayController : MonoBehaviour
 
         StopAllCoroutines();
         agent.isStopped = false;
+        agent.stoppingDistance = stopDistance;
         agent.destination = target;
     }
 
@@ -76,7 +81,7 @@ public class PlayController : MonoBehaviour
     private IEnumerator AttackToTarget()
     {
         agent.isStopped = false;
-        
+        agent.stoppingDistance = characterStats.attackData.attackRange;
         while (Vector3.Distance(transform.position, AttackTarget.transform.position)>characterStats.attackData.attackRange)
         {
             agent.destination = AttackTarget.transform.position;
@@ -105,8 +110,16 @@ public class PlayController : MonoBehaviour
     //Animation Event
     void Hit()
     {
-        var targetStats = AttackTarget.GetComponent<CharacterStats>();
-        
-        characterStats.TakeDamage(targetStats);
+        if (AttackTarget.GetComponent<Rock>()&&AttackTarget.GetComponent<Rock>().rockState==RockStates.HitNothing)
+        {
+            AttackTarget.GetComponent<Rock>().rockState = RockStates.HitEnemy;
+            AttackTarget.GetComponent<Rigidbody>().velocity=Vector3.one;
+            AttackTarget.GetComponent<Rigidbody>().AddForce(transform.forward * 20f, ForceMode.Impulse);
+        }
+        else
+        {
+            var targetStats = AttackTarget.GetComponent<CharacterStats>();
+            characterStats.TakeDamage(targetStats);
+        }
     }
 }
