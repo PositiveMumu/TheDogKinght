@@ -32,14 +32,27 @@ public class PlayController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         ani = GetComponent<Animator>();
         characterStats = GetComponent<CharacterStats>();
-
         stopDistance = agent.stoppingDistance;
+        
+    }
+
+    private void OnEnable()
+    {
+        MouseManager.Instance.OnGroundClick += MoveToTarget;
+        MouseManager.Instance.OnAttackClick += EventAttack;
+        GameManager.Instance.RegisterPlayer(characterStats);
     }
 
     private void Start()
     {
-        MouseManager.Instance.OnGroundClick += MoveToTarget;
-        MouseManager.Instance.OnAttackClick += EventAttack;
+        SaveManager.Instance.LoadPlayerData();
+    }
+
+    private void OnDisable()
+    {
+        if(!MouseManager.IsInitialized) return;
+        MouseManager.Instance.OnGroundClick -= MoveToTarget;
+        MouseManager.Instance.OnAttackClick -= EventAttack;
     }
 
     void Update()

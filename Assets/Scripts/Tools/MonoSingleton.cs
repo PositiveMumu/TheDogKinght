@@ -25,11 +25,15 @@ public class MonoSingleton<T> : MonoBehaviour where T:MonoSingleton<T>
         }
     }
 
-    protected void Awake()
+    public virtual void Awake()
     {
         if(instance!=null)
             Destroy(gameObject);
-        instance = (T)this;
+        else
+        {
+            instance = (T)this;
+        }
+
     }
     
     public static bool IsInitialized

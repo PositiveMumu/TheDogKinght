@@ -57,16 +57,23 @@
      <Compile Include="Assets\Scripts\Characters\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Tools\MonoSingleton.cs" />
      <Compile Include="Assets\Scripts\Characters\PlayController.cs" />
+     <Compile Include="Assets\Scripts\UI\PlayerHealthUI.cs" />
+     <Compile Include="Assets\Scripts\Manager\SaveManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\SceneController.cs" />
      <Compile Include="Assets\Scripts\Animatior Behavior\StopAgent.cs" />
+     <Compile Include="Assets\Scripts\Transition\TransitionPoint.cs" />
+     <Compile Include="Assets\Scripts\UI\HealthBarUI.cs" />
      <Compile Include="Assets\Scripts\Character States\ScriptableObject\CharacterData_SO.cs" />
+     <Compile Include="Assets\Scripts\Transition\TransitionDestination.cs" />
      <Compile Include="Assets\Scripts\Combat\AttackData_SO.cs" />
+     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Manager\MouseManager.cs" />
      <Compile Include="Assets\Scripts\Characters\EnemyStates.cs" />
+     <Compile Include="Assets\Scripts\Characters\Enemy\Rock.cs" />
      <Compile Include="Assets\Scripts\Tools\ExtensionMethod.cs" />
      <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
      <Compile Include="Assets\Scripts\Character States\MonoBehavior\CharacterStats.cs" />
-     <Compile Include="Assets\Scripts\Characters\Enemy\Rock.cs" />
-     <Compile Include="Assets\Scripts\UI\HealthBarUI.cs" />
+     <Compile Include="Assets\Scripts\UI\FadeUI.cs" />
      <None Include="Assets\Assets Packs\BOXOPHOBIC\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -642,100 +649,100 @@
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1c1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Shaders">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Runtime">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ProBuilder.AddOns.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Searcher.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProBuilder">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProBuilder.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProGrids.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Polybrush.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Polybrush.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Polybrush">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Polybrush.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Mathematics">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ShaderGraph.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Cinemachine">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.cinemachine.editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Mathematics.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProGrids">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Runtime">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.Editor">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProGrids.Editor">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Polybrush.Editor">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Polybrush.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Polybrush">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Polybrush.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ShaderGraph.Editor">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Cinemachine">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Editor">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline.Editor">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics.Editor">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProGrids">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Editor">
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

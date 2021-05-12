@@ -115,8 +115,9 @@ public class CharacterStats : MonoBehaviour
         int temp = Mathf.Max(damage - CurrentDefence, 0);
         CurrentHealth = Mathf.Max(CurrentHealth - temp, 0);
         UpdateHealthBarOnAttack?.Invoke(CurrentHealth,MaxHealth);
-        // if(denfencer.CurrentHealth<=0)
-        //     characterData.UpdateExp(denfencer.characterData.killPoint);
+        
+        if(CurrentHealth<=0)
+            GameManager.Instance.playerStats.characterData.UpdateExp(characterData.killPoint);
     }
 
     private int CurrentDamage()

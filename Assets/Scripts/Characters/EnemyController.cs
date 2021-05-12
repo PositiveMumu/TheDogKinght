@@ -96,14 +96,12 @@ public class EnemyController : MonoBehaviour
             lastAttackTime -= Time.deltaTime;
         }
         
-        //todo 添加场景切换后修改
-        GameManager.Instance.RegisterGameEndEvent(IEndGameMethod);
     }
 
-    // private void OnEnable()
-    // {
-    //     GameManager.Instance.RegisterGameEndEvent(IEndGameMethod);
-    // }
+    private void OnEnable()
+    {
+        GameManager.Instance.RegisterGameEndEvent(IEndGameMethod);
+    }
 
     private void OnDisable()
     {

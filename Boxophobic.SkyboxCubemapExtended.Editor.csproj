@@ -294,10 +294,10 @@
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1c1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="ICSharpCode.NRefactory">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/PackageCache/com.unity.render-pipelines.core@10.4.0/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/PackageCache/com.unity.render-pipelines.core@10.4.0/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1c1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -651,16 +651,16 @@
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1c1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/netstandard.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>/Volumes/Datas/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>/Users/mumu/Codes/Unity/TheDogKinght/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

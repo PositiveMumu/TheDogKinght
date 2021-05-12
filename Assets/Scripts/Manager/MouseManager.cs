@@ -22,6 +22,12 @@ public class MouseManager : MonoSingleton<MouseManager>
     
     private RaycastHit hitInfo;
 
+    public override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -35,7 +41,6 @@ public class MouseManager : MonoSingleton<MouseManager>
 
         if (Physics.Raycast(ray, out hitInfo))
         {
-            //todo 切换鼠标显示
             switch (hitInfo.collider.tag)
             {
                 case "Ground":
@@ -46,6 +51,12 @@ public class MouseManager : MonoSingleton<MouseManager>
                     break;
                 case "Attackable":
                     Cursor.SetCursor(Attack,new Vector2(16,16),CursorMode.Auto);
+                    break;
+                case "Portal":
+                    Cursor.SetCursor(Doorway,new Vector2(16,16),CursorMode.Auto);
+                    break;
+                default:
+                    Cursor.SetCursor(Arrow,new Vector2(16,16),CursorMode.Auto);
                     break;
             }
         }
@@ -66,6 +77,10 @@ public class MouseManager : MonoSingleton<MouseManager>
             if (hitInfo.collider.gameObject.CompareTag("Attackable"))
             {
                 OnAttackClick?.Invoke(hitInfo.collider.gameObject);
+            }
+            if (hitInfo.collider.gameObject.CompareTag("Portal"))
+            {
+                OnGroundClick?.Invoke(hitInfo.point);
             }
         }
     }

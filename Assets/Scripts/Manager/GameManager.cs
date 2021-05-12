@@ -9,6 +9,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -16,10 +17,17 @@ public class GameManager : MonoSingleton<GameManager>
     public CharacterStats playerStats;
 
     private event Action GameEnd;
-
+    
     public void RegisterPlayer(CharacterStats player)
     {
         playerStats = player;
+
+        CinemachineFreeLook cfl = FindObjectOfType<CinemachineFreeLook>();
+        if (cfl != null)
+        {
+            cfl.Follow = player.transform.GetChild(2);
+            cfl.LookAt = player.transform.GetChild(2);
+        }
     }
 
     public void RegisterGameEndEvent(Action method)
@@ -35,5 +43,11 @@ public class GameManager : MonoSingleton<GameManager>
     public void Notify()
     {
         GameEnd?.Invoke();
+    }
+    
+    protected override void OnDestroy()
+    {
+        SaveManager.Instance.SavePlayerData();
+        base.OnDestroy();
     }
 }
